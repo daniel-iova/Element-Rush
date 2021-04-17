@@ -1,1 +1,4 @@
-addObstacles
+1. add all sprites
+2. add obstacles
+
+obstacles = {moving traps, barriers}
