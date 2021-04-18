@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     // Elements and their respective CircleCollider radius
-    private readonly string[] elements = {"Air", "Earth" };
-    private readonly float[] elementColliderRadius = { 5f, 5.8f };
+    private readonly string[] elements = {"Air", "Earth", "Fire", "Water" };
+    // Final sprites might have different sizes, so we set different values for the collider radius
+    private readonly float[] elementColliderRadius = { .5f, .5f, .5f, .5f };
 
     public float jumpForce = 10f;
 
@@ -19,7 +21,8 @@ public class Player : MonoBehaviour
     void ChangeSprite()
     {
         currentElementIndex = Random.Range(0, elements.Length);
-        spriteRenderer.sprite = Resources.Load<Sprite>($"Sprites/player{elements[currentElementIndex]}");
+        // Using placeholder sprites for now
+        spriteRenderer.sprite = Resources.Load<Sprite>(Path.Combine("Sprites", "PlaceholderPlayer", $"player{elements[currentElementIndex]}"));
         // Change collider radius based on element
         circleCollider.radius = elementColliderRadius[currentElementIndex];
     }
