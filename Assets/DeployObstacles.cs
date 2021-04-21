@@ -21,12 +21,20 @@ public class DeployObstacles : MonoBehaviour
         StartCoroutine(obstaclePath());
         
     }
+    public Vector2 CalculateBounds(GameObject a)
+    {
+        return a.GetComponent<BoxCollider2D>().size;
+    }
 
     private void spawnObstacle(bool start = false)
     {
         int obstacleIndex = Random.Range(0, obstaclePrefab.Length);
 
-        GameObject a = Instantiate(obstaclePrefab[obstacleIndex]) as GameObject;
+        GameObject a = Instantiate(obstaclePrefab[obstacleIndex]);
+
+        Debug.Log(CalculateBounds(a));
+
+        a.GetComponent<BoxCollider2D>().enabled = false;
 
         float cameraX = Camera.main.transform.position.x;
 

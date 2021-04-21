@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class OutOfCamera : MonoBehaviour
 {
-    private Vector2 screenBounds;
+    private BoxCollider2D bc;
+    private float width;
 
     private void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(
-            new Vector3(Screen.width, Screen.height,
-            Camera.main.transform.position.z));
+        bc = GetComponent<BoxCollider2D>();
+        float height = 2f * Camera.main.orthographicSize;
+        width = height * Camera.main.aspect;
     }
     // Update is called once per frame
     void Update()
     {
         float cameraX = Camera.main.transform.position.x;
-        float sum = transform.position.x + screenBounds.x;
-        if (1.5*sum < cameraX)
+        if (transform.position.x + (bc.size.x) < (cameraX - width / 2))
         {
             Destroy(this.gameObject);
-            Debug.Log("Object Destroyed");
         }
     }
 }
