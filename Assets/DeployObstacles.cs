@@ -5,8 +5,10 @@ using UnityEngine;
 public class DeployObstacles : MonoBehaviour
 {
     public GameObject[]   obstaclePrefab;
-    public float        respawnTime = 1.0f;
-    public float        offsetSpawn = 50f;
+    public float  respawnTime = 1.0f;
+    public float  offsetSpawn = 10f;
+    public float spacing = 15f;
+    private float width;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,8 @@ public class DeployObstacles : MonoBehaviour
         SpawnObstacle(true);
 
         StartCoroutine(ObstaclePath());
+
+        width = Camera.main.GetComponent<CameraUtils>().GetCameraWidth();
         
     }
 
@@ -23,6 +27,7 @@ public class DeployObstacles : MonoBehaviour
         int obstacleIndex = Random.Range(0, obstaclePrefab.Length);
 
         GameObject a = Instantiate(obstaclePrefab[obstacleIndex]);
+
         a.GetComponent<BoxCollider2D>().enabled = false;
 
         float cameraX = Camera.main.transform.position.x;
@@ -32,10 +37,10 @@ public class DeployObstacles : MonoBehaviour
                                                transform.position.y);
 
         else
-            a.transform.position = new Vector2(cameraX + offsetSpawn,
+            a.transform.position = new Vector2( cameraX + (width / 2) + offsetSpawn,
                                                transform.position.y);
-                                               
-        
+
+        offsetSpawn += a.GetComponent<BoxCollider2D>().size.x + spacing;
     }
     IEnumerator ObstaclePath()
     {
