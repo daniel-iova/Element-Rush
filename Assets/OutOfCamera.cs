@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OutOfCamera : MonoBehaviour
 {
     private BoxCollider2D bc;
     private float width;
+
 
     private void Start()
     {

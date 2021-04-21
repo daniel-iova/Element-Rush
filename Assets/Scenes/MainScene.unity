@@ -155,8 +155,8 @@ MonoBehaviour:
   obstaclePrefab:
   - {fileID: 3805706923720740375, guid: 1a46c32ab2ede434bbc26583f3dd6bb7, type: 3}
   - {fileID: 498199514383314521, guid: 72a2435a362105542b7a8a0f1f5da9a1, type: 3}
-  respawnTime: 10
-  offsetSpawn: 25
+  respawnTime: 3
+  offsetSpawn: 100
 --- !u!4 &366400976
 Transform:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 1343652633}
   - component: {fileID: 1343652632}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,39 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DeployObstacles : MonoBehaviour
 {
     public GameObject[]   obstaclePrefab;
     public float        respawnTime = 1.0f;
-    public float        offsetSpawn = 100.0f;
-    private Vector2 screenBounds;
-    
+    public float        offsetSpawn = 50f;
+
     // Start is called before the first frame update
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(
-           new Vector3(Screen.width, Screen.height,
-           Camera.main.transform.position.z));
         
-        spawnObstacle(true);
+        SpawnObstacle(true);
 
-        StartCoroutine(obstaclePath());
+        StartCoroutine(ObstaclePath());
         
     }
-    public Vector2 CalculateBounds(GameObject a)
-    {
-        return a.GetComponent<BoxCollider2D>().size;
-    }
 
-    private void spawnObstacle(bool start = false)
+    private void SpawnObstacle(bool start = false)
     {
         int obstacleIndex = Random.Range(0, obstaclePrefab.Length);
 
         GameObject a = Instantiate(obstaclePrefab[obstacleIndex]);
-
-        Debug.Log(CalculateBounds(a));
-
         a.GetComponent<BoxCollider2D>().enabled = false;
 
         float cameraX = Camera.main.transform.position.x;
@@ -48,12 +37,12 @@ public class DeployObstacles : MonoBehaviour
                                                
         
     }
-    IEnumerator obstaclePath()
+    IEnumerator ObstaclePath()
     {
         while(true)
         {
             yield return new WaitForSeconds(respawnTime);
-            spawnObstacle();
+            SpawnObstacle();
         }
     }
 
