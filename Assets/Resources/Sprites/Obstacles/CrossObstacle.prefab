@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3805706923720740372}
   - component: {fileID: 3630174617420174019}
   - component: {fileID: 363239773115090828}
+  - component: {fileID: 9180819216156176601}
   m_Layer: 0
   m_Name: CrossObstacle
   m_TagString: Untagged
@@ -51,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaximumRotationSpeed: 100
-  rotationDirection: 1
 --- !u!114 &3805706923720740372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11561581407f4164a86eea2588776964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posY: 5
 --- !u!61 &363239773115090828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -103,6 +102,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.67, y: 10.67}
   m_EdgeRadius: 0
+--- !u!114 &9180819216156176601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805706923720740375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80b44abe9fb6c5419137deba2c6d348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RangeStartSize: 2
+  RangeEndSize: 2.65
 --- !u!1 &3805706923761393970
 GameObject:
   m_ObjectHideFlags: 0

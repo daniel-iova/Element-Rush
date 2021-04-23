@@ -11,4 +11,9 @@ public class CameraUtils : MonoBehaviour
         float height = 2f * objectCamera.orthographicSize;
         return height * objectCamera.aspect;
     }
+
+    public float GetRoundedDistance()
+    {
+        return Mathf.Round(transform.position.x);
+    }
 }
