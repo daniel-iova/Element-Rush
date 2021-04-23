@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private int currentElementIndex = -1;
+
+    float time = 10;
 
     void ChangeSprite()
     {
@@ -42,6 +46,29 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             rb.velocity = Vector2.right * jumpForce;
+        }
+
+        if (time >= 5)
+        {
+            ChangeSprite();
+            time = 0;
+        }
+        else
+        {
+            time += Time.deltaTime;
+            //Debug.Log(time);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag == elements[currentElementIndex])
+        {
+            // score increase etc
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
