@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public CircleCollider2D circleCollider;
 
     private SpriteRenderer spriteRenderer;
-
+    private float width;
     private int currentElementIndex = -1;
 
     float time = 10;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        
+        width = Camera.main.GetComponent<CameraUtils>().GetCameraWidth();
         ChangeSprite();
     }
 
@@ -56,7 +56,11 @@ public class Player : MonoBehaviour
         else
         {
             time += Time.deltaTime;
-            //Debug.Log(time);
+        }
+        float cameraX = Camera.main.transform.position.x;
+        if (transform.position.x + (circleCollider.radius) < (cameraX - (width / 2)))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

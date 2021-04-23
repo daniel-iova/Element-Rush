@@ -8,16 +8,16 @@ public class DeployObstacles : MonoBehaviour
     public float  respawnTime = 1.0f;
     public float  offsetSpawn = 10f;
     public float spacing = 15f;
+    public int maxObstacleCount = 10;
     private float width;
+    private int obstacleCount = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         
         SpawnObstacle(true);
-
+        obstacleCount++;
         StartCoroutine(ObstaclePath());
-
         width = Camera.main.GetComponent<CameraUtils>().GetCameraWidth();
         
     }
@@ -47,8 +47,17 @@ public class DeployObstacles : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(respawnTime);
-            SpawnObstacle();
+            if (obstacleCount < maxObstacleCount)
+            {
+                SpawnObstacle();
+                obstacleCount++;
+            }
         }
+    }
+
+    public void DecrementObstacleCount()
+    {
+        obstacleCount--;
     }
 
     // Update is called once per frame

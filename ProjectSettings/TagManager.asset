@@ -8,6 +8,7 @@ TagManager:
   - Air
   - Water
   - Earth
+  - ObstacleSpawner
   layers:
   - Default
   - TransparentFX

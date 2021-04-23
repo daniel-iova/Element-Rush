@@ -8,6 +8,9 @@ public class Obstacle : MonoBehaviour
 
     public float RangeStartSize = 1.7f;
     public float RangeEndSize = 2.3f;
+    public bool RotationDependentOnPosition = false;
+    public float RandomPostionRangeStart;
+    public float RandomPostionRangeEnd;
 
     void Start()
     {

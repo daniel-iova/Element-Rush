@@ -17,6 +17,7 @@ public class OutOfCamera : MonoBehaviour
         float cameraX = Camera.main.transform.position.x;
         if (transform.position.x + (bc.size.x) < (cameraX - (width/2)))
         {
+            GameObject.FindGameObjectsWithTag("ObstacleSpawner")[0].GetComponent<DeployObstacles>().DecrementObstacleCount();
             Destroy(this.gameObject);
         }
     }

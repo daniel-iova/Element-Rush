@@ -116,6 +116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RangeStartSize: 2
   RangeEndSize: 2.65
+  RotationDependentOnPosition: 1
+  RandomPostionRangeStart: 4
+  RandomPostionRangeEnd: 11
 --- !u!1 &3805706923761393970
 GameObject:
   m_ObjectHideFlags: 0

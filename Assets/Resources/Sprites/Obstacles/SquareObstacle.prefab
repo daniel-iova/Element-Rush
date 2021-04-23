@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1090224052368639433}
   - component: {fileID: 3769745651886747468}
   - component: {fileID: 2642976079704965042}
+  - component: {fileID: 9212198599204054182}
   m_Layer: 0
   m_Name: SquareObstacle
   m_TagString: Untagged
@@ -211,8 +212,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80b44abe9fb6c5419137deba2c6d348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangeStartSize: 1.4
-  RangeEndSize: 2.2
+  RangeStartSize: 1.35
+  RangeEndSize: 2.1
+  RotationDependentOnPosition: 0
+  RandomPostionRangeStart: 0
+  RandomPostionRangeEnd: 2
 --- !u!114 &2642976079704965042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +227,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b3388193bda92846ace129c4dff948e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9212198599204054182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498199514383314521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11561581407f4164a86eea2588776964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &498199514670820248
