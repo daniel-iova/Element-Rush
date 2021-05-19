@@ -155,6 +155,7 @@ MonoBehaviour:
   obstaclePrefab:
   - {fileID: 3805706923720740375, guid: 1a46c32ab2ede434bbc26583f3dd6bb7, type: 3}
   - {fileID: 498199514383314521, guid: 72a2435a362105542b7a8a0f1f5da9a1, type: 3}
+  - {fileID: 4446422728406135694, guid: c228753da3aaf6f468d2008209e4d6f3, type: 3}
   respawnTime: 0.5
   offsetSpawn: 10
   spacing: 15

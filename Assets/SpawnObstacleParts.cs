@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnObstacleParts : MonoBehaviour
 {
+    public GameObject       thisGameObject;
     public GameObject[]     obstaclePartsPrefab;
     public float            offsetX = 4.0f;
     public int              minimumNoParts = 4;
@@ -33,7 +34,7 @@ public class SpawnObstacleParts : MonoBehaviour
             sign *= -1;
             noParts--;
 
-            part.transform.parent = GameObject.Find("SideToSideObstacle(Clone)").transform;
+            part.transform.parent = thisGameObject.transform;
 
         }
     }
