@@ -69,10 +69,11 @@ public class Player : MonoBehaviour
         if(col.tag == elements[currentElementIndex])
         {
             // score increase etc
+
         }
         else
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 public class DeployObstacles : MonoBehaviour
 {
-    public GameObject[]   obstaclePrefab;
-    public float  respawnTime = 1.0f;
-    public float  offsetSpawn = 10f;
+    public GameObject[] obstaclePrefab;
+    public float respawnTime = 1.0f;
+    public float offsetSpawn = 10f;
     public float spacing = 15f;
     public int maxObstacleCount = 10;
     private float width;
@@ -14,20 +13,21 @@ public class DeployObstacles : MonoBehaviour
 
     void Start()
     {
-        
+
         SpawnObstacle(true);
         obstacleCount++;
         StartCoroutine(ObstaclePath());
         width = Camera.main.GetComponent<CameraUtils>().GetCameraWidth();
-        
+
     }
 
     private void SpawnObstacle(bool start = false)
     {
-        int obstacleIndex = Random.Range(0, obstaclePrefab.Length);
+        int obstacleIndex = UnityEngine.Random.Range(0, obstaclePrefab.Length);
 
         GameObject a = Instantiate(obstaclePrefab[obstacleIndex]);
-       
+
+        a.transform.parent = transform;
 
         float cameraX = Camera.main.transform.position.x;
 
@@ -36,15 +36,15 @@ public class DeployObstacles : MonoBehaviour
                                                transform.position.y);
 
         else
-            a.transform.position = new Vector2( cameraX + (width / 2) + offsetSpawn,
+            a.transform.position = new Vector2(cameraX + (width / 2) + offsetSpawn,
                                                transform.position.y);
 
-        offsetSpawn += (a.GetComponent<BoxCollider2D>().size.x + a.GetComponent<BoxCollider2D>().offset.x + spacing);
+        offsetSpawn += (a.GetComponent<BoxCollider2D>().size.x + spacing);
         a.GetComponent<BoxCollider2D>().enabled = false;
     }
     IEnumerator ObstaclePath()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(respawnTime);
             if (obstacleCount < maxObstacleCount)
@@ -63,6 +63,17 @@ public class DeployObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.DrawLine(new Vector3(offsetSpawn, 0), new Vector3(Camera.main.transform.position.x, 0), Color.green);
+        for (int i = 0; i < obstacleCount; i++)
+        {
+            var child = transform.GetChild(i).gameObject;
+            if (child.GetComponent<DynamicBoxCollider>() != null)
+            {
+                if (child.GetComponent<DynamicBoxCollider>().GetComputed() == true)
+                {
+                    offsetSpawn += child.GetComponent<DynamicBoxCollider>().GetColliderXOffset();
+                    child.GetComponent<DynamicBoxCollider>().SetComputed(false);
+                }
+            }
+        }
     }
 }

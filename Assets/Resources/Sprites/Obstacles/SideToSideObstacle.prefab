@@ -93,7 +93,7 @@ MonoBehaviour:
   - {fileID: 4749538097673820808, guid: bcb66e763dd8bb34f943636f89a65362, type: 3}
   - {fileID: 6914668946607729392, guid: f5bae23a458f6434b941b47e19ae9fe6, type: 3}
   offsetX: 15
-  minimumNoParts: 12
+  minimumNoParts: 4
   maximumNoParts: 12
 --- !u!114 &-648895283055930830
 MonoBehaviour:
@@ -142,4 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 895713881120438805}
   partsSpawner: {fileID: 7040602349934816420}
+  uEvent:
+    m_PersistentCalls:
+      m_Calls: []
   spacing: 0.1
