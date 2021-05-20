@@ -19,12 +19,12 @@ public class BackgroundLoop : MonoBehaviour
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         foreach (GameObject obj in levels)
         {
-            loadChildObjects(obj);
+            LoadChildObjects(obj);
         }
         lastScreenPosition = transform.position;
     }
 
-    void loadChildObjects(GameObject obj)
+    void LoadChildObjects(GameObject obj)
     {
         float objectWidth = obj.GetComponent<SpriteRenderer>().bounds.size.x - choke;
         int childsNeeded = (int)Mathf.Ceil(screenBounds.x * 2 / objectWidth);
@@ -39,7 +39,7 @@ public class BackgroundLoop : MonoBehaviour
         Destroy(clone);
         Destroy(obj.GetComponent<SpriteRenderer>());
     }
-    void repositionChildObjects(GameObject obj)
+    void RepositionChildObjects(GameObject obj)
     {
         Transform[] children = obj.GetComponentsInChildren<Transform>();
         if (children.Length > 1)
@@ -70,7 +70,7 @@ public class BackgroundLoop : MonoBehaviour
     {
         foreach (GameObject obj in levels)
         {
-            repositionChildObjects(obj);
+            RepositionChildObjects(obj);
             float parallaxSpeed = 1 - Mathf.Clamp01(Mathf.Abs(transform.position.z / obj.transform.position.z));
             float difference = transform.position.x - lastScreenPosition.x;
             obj.transform.Translate(Vector3.right * difference * parallaxSpeed);
