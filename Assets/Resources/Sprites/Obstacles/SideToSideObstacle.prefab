@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 895713881120438805}
   - component: {fileID: 7040602349934816420}
   - component: {fileID: -648895283055930830}
+  - component: {fileID: 5219777067220192507}
   m_Layer: 0
   m_Name: SideToSideObstacle
   m_TagString: Untagged
@@ -122,3 +123,20 @@ MonoBehaviour:
   bottomLimitY: -8
   minSpeed: 450
   maxSpeed: 500
+--- !u!114 &5219777067220192507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4446422728406135694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80b44abe9fb6c5419137deba2c6d348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomSizeRangeStart: 2
+  RandomSizeRangeEnd: 2
+  RotationDependentOnPosition: 0
+  RandomPostionRangeStart: 0
+  RandomPostionRangeEnd: 0
