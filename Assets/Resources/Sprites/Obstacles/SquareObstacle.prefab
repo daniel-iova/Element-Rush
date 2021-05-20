@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80b44abe9fb6c5419137deba2c6d348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RangeStartSize: 1.35
-  RangeEndSize: 2.1
+  RandomSizeRangeStart: 1.7
+  RandomSizeRangeEnd: 2.3
   RotationDependentOnPosition: 0
   RandomPostionRangeStart: 0
   RandomPostionRangeEnd: 2

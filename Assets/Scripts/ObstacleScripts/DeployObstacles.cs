@@ -27,8 +27,7 @@ public class DeployObstacles : MonoBehaviour
         int obstacleIndex = Random.Range(0, obstaclePrefab.Length);
 
         GameObject a = Instantiate(obstaclePrefab[obstacleIndex]);
-
-        a.GetComponent<BoxCollider2D>().enabled = false;
+       
 
         float cameraX = Camera.main.transform.position.x;
 
@@ -40,7 +39,8 @@ public class DeployObstacles : MonoBehaviour
             a.transform.position = new Vector2( cameraX + (width / 2) + offsetSpawn,
                                                transform.position.y);
 
-        offsetSpawn += a.GetComponent<BoxCollider2D>().size.x + spacing;
+        offsetSpawn += (a.GetComponent<BoxCollider2D>().size.x + a.GetComponent<BoxCollider2D>().offset.x + spacing);
+        a.GetComponent<BoxCollider2D>().enabled = false;
     }
     IEnumerator ObstaclePath()
     {
@@ -63,6 +63,6 @@ public class DeployObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.DrawLine(new Vector3(offsetSpawn, 0), new Vector3(Camera.main.transform.position.x, 0), Color.green);
     }
 }

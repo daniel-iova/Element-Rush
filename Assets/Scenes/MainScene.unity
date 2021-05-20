@@ -157,7 +157,7 @@ MonoBehaviour:
   respawnTime: 0.5
   offsetSpawn: 10
   spacing: 15
-  maxObstacleCount: 1
+  maxObstacleCount: 2
 --- !u!4 &366400976
 Transform:
   m_ObjectHideFlags: 0
