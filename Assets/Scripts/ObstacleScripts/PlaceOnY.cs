@@ -9,7 +9,7 @@ public class PlaceOnY : MonoBehaviour
     {
         Obstacle obstacle = GetComponent<Obstacle>();
         posY = Random.Range(0, 2) == 0 ? 
-            Random.Range(obstacle.RandomPostionRangeStart, obstacle.RandomPostionRangeEnd) : 
+            Random.Range(obstacle.RandomPostionRangeStart, obstacle.RandomPostionRangeEnd) :
             Random.Range(-obstacle.RandomPostionRangeStart, -obstacle.RandomPostionRangeEnd);
         if (obstacle.RotationDependentOnPosition)
         {

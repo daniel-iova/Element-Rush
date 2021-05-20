@@ -40,11 +40,11 @@ public class UpDownPartsMovement : MonoBehaviour
             
             if (topLimitY == part.transform.position.y)
             {
-                rb.velocity = new Vector2(0, -speed * Time.deltaTime);
+                rb.velocity = new Vector2(0, -speed);
             }
             else
                 {
-                    rb.velocity = new Vector2(0, speed * Time.deltaTime);
+                    rb.velocity = new Vector2(0, speed);
                 }
         }
     }
