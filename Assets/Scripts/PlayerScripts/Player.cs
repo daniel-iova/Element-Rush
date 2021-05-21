@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    private bool canChange = true;
+
     // Update is called once per frame
     void Update()
     {
@@ -50,7 +52,10 @@ public class Player : MonoBehaviour
 
         if (time >= 5)
         {
-            ChangeSprite();
+            if (canChange == true)
+            {
+                ChangeSprite();
+            }
             time = 0;
         }
         else
@@ -62,18 +67,24 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        canChange = true;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == elements[currentElementIndex])
+        if(col.CompareTag(elements[currentElementIndex]))
         {
             // score increase etc
-
+            canChange = false;
         }
         else
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public string GetCurrentElement()
+    {
+        return elements[currentElementIndex];
     }
 }

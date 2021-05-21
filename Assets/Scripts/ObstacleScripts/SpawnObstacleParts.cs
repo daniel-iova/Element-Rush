@@ -31,6 +31,7 @@ public class SpawnObstacleParts : MonoBehaviour
             
 
             part.transform.position = new Vector2(xPos, part.transform.position.y * sign);
+            part.transform.localScale *= Random.Range(.9f, 1.1f);
             xPos += offsetX;
             sign *= -1;
             noParts--;
