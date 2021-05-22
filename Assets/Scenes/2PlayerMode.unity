@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 99276866}
   - component: {fileID: 99276865}
   - component: {fileID: 99276864}
-  - component: {fileID: 99276867}
+  - component: {fileID: 99276871}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 775687059}
   bulletPrefab: {fileID: 2125717161558573711, guid: c9c9208e0e7a1a045b9fe876e94875de, type: 3}
-  player: {fileID: 0}
+  player: {fileID: 99276871}
 --- !u!58 &99276865
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -219,21 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragForce: 4
-  rb: {fileID: 99276868}
---- !u!114 &99276867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99276863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c2cad52be2a9ba42a36ddd9c679a912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 29
-  circleCollider: {fileID: 99276865}
   rb: {fileID: 99276868}
 --- !u!50 &99276868
 Rigidbody2D:
@@ -322,6 +307,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &99276871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99276863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851ba86820a184e4aa3a67117b252572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 29
+  circleCollider: {fileID: 99276865}
+  rb: {fileID: 99276868}
 --- !u!1 &366400974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,10 +1094,10 @@ GameObject:
   - component: {fileID: 1343652631}
   - component: {fileID: 1343652630}
   - component: {fileID: 1343652628}
-  - component: {fileID: 1343652629}
   - component: {fileID: 1343652633}
   - component: {fileID: 1343652632}
   - component: {fileID: 1343652634}
+  - component: {fileID: 1343652629}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1343652627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f953934099032d428e39204c8c03d0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 851ba86820a184e4aa3a67117b252572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 29

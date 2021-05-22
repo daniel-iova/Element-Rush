@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public Player1 player;
+    public Player player;
 
     private void Start()
     {

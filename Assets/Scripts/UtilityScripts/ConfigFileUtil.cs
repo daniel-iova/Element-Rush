@@ -2,6 +2,9 @@
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using Newtonsoft.Json.Converters;
+using System.Dynamic;
 
 namespace Assets.Scripts.UtilityScripts
 {
@@ -14,21 +17,32 @@ namespace Assets.Scripts.UtilityScripts
         }
         private static dynamic GetDynamicJson(string filename)
         {
-            return JObject.Parse(GetJsonString(filename));
+            var converter = new ExpandoObjectConverter(); 
+
+            //return JObject.Parse(GetJsonString(filename));
+            return JsonConvert.DeserializeObject<ExpandoObject>(GetJsonString(filename), converter);
+            //return JsonConvert.DeserializeObject(GetJsonString(filename));
         }
 
-        public static dynamic GetMode()
+        public static dynamic GetValue(string key)
         {
             dynamic json = GetDynamicJson(playConfigPath);
-            return json.mode;
+            //Debug.Log(json);
+            foreach (KeyValuePair<string, object> kvp in json)
+            {
+                if (kvp.Key == key)
+                {
+                    return kvp.Value;
+                }
+            }
+            return null;
         }
-        //object x = JsonUtility.FromJson<object>("x");
 
         public static void UpdateFile(object key, object value)
         {
-            dynamic json = GetDynamicJson(playConfigPath);
-            json[key].Value = value;
-            File.WriteAllText(playConfigPath, JsonConvert.SerializeObject(json));
+            //dynamic json = GetDynamicJson(playConfigPath);
+            //json[key].Value = value;
+            //File.WriteAllText(playConfigPath, JsonConvert.SerializeObject(json));
         }
 
     }

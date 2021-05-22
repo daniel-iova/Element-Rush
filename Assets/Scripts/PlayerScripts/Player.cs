@@ -5,14 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class Player1 : MonoBehaviour
+public class Player : MonoBehaviour
 {
     // Elements and their respective CircleCollider radius
     private readonly string[] elements = {"Air", "Earth", "Fire", "Water" };
     // Final sprites might have different sizes, so we set different values for the collider radius
     private readonly float[] elementColliderRadius = { .5f, .5f, .5f, .5f };
 
-    public float jumpForce = 10f;
+    public float jumpForce = 29f;
 
     public CircleCollider2D circleCollider;
 
