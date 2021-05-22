@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-using System.IO;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-using Newtonsoft.Json.Converters;
 using System.Dynamic;
+using System.IO;
+using UnityEngine;
 
 namespace Assets.Scripts.UtilityScripts
 {
@@ -17,7 +17,7 @@ namespace Assets.Scripts.UtilityScripts
         }
         private static dynamic GetDynamicJson(string filename)
         {
-            var converter = new ExpandoObjectConverter(); 
+            var converter = new ExpandoObjectConverter();
 
             //return JObject.Parse(GetJsonString(filename));
             return JsonConvert.DeserializeObject<ExpandoObject>(GetJsonString(filename), converter);
@@ -27,7 +27,6 @@ namespace Assets.Scripts.UtilityScripts
         public static dynamic GetValue(string key)
         {
             dynamic json = GetDynamicJson(playConfigPath);
-            //Debug.Log(json);
             foreach (KeyValuePair<string, object> kvp in json)
             {
                 if (kvp.Key == key)
@@ -38,11 +37,11 @@ namespace Assets.Scripts.UtilityScripts
             return null;
         }
 
-        public static void UpdateFile(object key, object value)
+        public static void UpdateMode(object value)
         {
-            //dynamic json = GetDynamicJson(playConfigPath);
-            //json[key].Value = value;
-            //File.WriteAllText(playConfigPath, JsonConvert.SerializeObject(json));
+            dynamic json = JObject.Parse(GetJsonString(playConfigPath));
+            json["mode"].Value = value;
+            File.WriteAllText(playConfigPath, JsonConvert.SerializeObject(json));
         }
 
     }

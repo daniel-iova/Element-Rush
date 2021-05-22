@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MiddleCrossObstacle
+    uniqueID: 3567998717
+    locked: 0
   - name: Obstacles
     uniqueID: 1641154615
     locked: 0

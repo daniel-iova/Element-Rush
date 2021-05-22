@@ -10,7 +10,10 @@ public class Player : MonoBehaviour
     // Elements and their respective CircleCollider radius
     private readonly string[] elements = {"Air", "Earth", "Fire", "Water" };
     // Final sprites might have different sizes, so we set different values for the collider radius
-    private readonly float[] elementColliderRadius = { .5f, .5f, .5f, .5f };
+    private readonly float[] elementColliderRadius = { 13.41f, 12.26f, 11.23f, 12.6f };
+
+    // SET TO 1 FOR THE 2ND PLAYER IN THE 2P MODE
+    public int Id = 0;
 
     public float jumpForce = 29f;
 
@@ -22,11 +25,34 @@ public class Player : MonoBehaviour
 
     float time = 10;
 
+    private int? shootKey, jumpKey;
+
+    public KeyCode GetKeyCode(string actionType)
+    {
+        AssignKeys();
+        switch (actionType)
+        {
+            case "shoot":
+                return (KeyCode)shootKey;
+            case "jump":
+                return (KeyCode)jumpKey;
+            default:
+                return KeyCode.Return;
+        }
+    }
+
+    private void AssignKeys()
+    {
+        dynamic json = Camera.main.GetComponent<CameraUtils>().GetKeysForPlayerId(Id);
+        shootKey ??= (int)json.shoot;
+        jumpKey ??= (int)json.jump;
+    }
+
     void ChangeSprite()
     {
         currentElementIndex = Random.Range(0, elements.Length);
         // Using placeholder sprites for now
-        spriteRenderer.sprite = Resources.Load<Sprite>(Path.Combine("Sprites", "PlaceholderPlayer", $"player{elements[currentElementIndex]}"));
+        spriteRenderer.sprite = Resources.Load<Sprite>(Path.Combine("Sprites", "Player", $"{elements[currentElementIndex]}Player"));
         // Change collider radius based on element
         circleCollider.radius = elementColliderRadius[currentElementIndex];
     }
@@ -45,7 +71,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Vertical"))
+        if (Input.GetKeyDown(GetKeyCode("jump")))
         {
             rb.velocity = Vector2.right * jumpForce;
         }
@@ -63,7 +89,7 @@ public class Player : MonoBehaviour
             time += Time.deltaTime;
         }
         float cameraX = Camera.main.transform.position.x;
-        if (transform.position.x + (circleCollider.radius) < (cameraX - (width / 2)))
+        if (transform.position.x + (circleCollider.radius*circleCollider.transform.localScale.x) < (cameraX - (width / 2)))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

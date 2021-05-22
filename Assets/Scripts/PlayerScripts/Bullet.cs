@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour
         // air  and earth cancel eachother out
         float scaleMult = .8f;
         var dict = new Dictionary<string, Action<Bullet>>();
+        dict.Add(type, (b) => { return; });
         switch (type)
         {
             case "Fire":
@@ -117,7 +118,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (tag != collision.tag)
+        if (!collision.CompareTag(tag))
         {
             ApplyRelation(tag, collision.tag);
         }

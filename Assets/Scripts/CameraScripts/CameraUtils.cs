@@ -1,16 +1,16 @@
 using Assets.Scripts.UtilityScripts;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CameraUtils : MonoBehaviour
 {
     public Camera objectCamera;
 
-    private string playMode;
-
     void Start()
     {
+        ConfigFileUtil.UpdateMode(MainMenu.FindObjectsOfType<GameObject>().Where(o => o.GetComponent<Player>() != null).Count());
     }
 
     public dynamic GetKeysForPlayerId(int id)
