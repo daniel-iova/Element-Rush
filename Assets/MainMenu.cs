@@ -1,3 +1,4 @@
+using Assets.Scripts.UtilityScripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,15 @@ public class MainMenu : MonoBehaviour
     
     public void Play_1_PlayerGame()
     {
+        // set scene config to 1p
+        ConfigFileUtil.UpdateFile("mode", 1);
         SceneManager.LoadScene("1PlayerMode");
     }
-    
+     
     public void Play_2_PlayerGame()
     {
+        // set scene config to 2p
+        ConfigFileUtil.UpdateFile("mode", 2);
         SceneManager.LoadScene("2PlayerMode");
     }
 
