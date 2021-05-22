@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     // Elements and their respective CircleCollider radius
     private readonly string[] elements = {"Air", "Earth", "Fire", "Water" };
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Vertical"))
         {
             rb.velocity = Vector2.right * jumpForce;
         }

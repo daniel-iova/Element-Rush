@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlaceOnY : MonoBehaviour
 {
-    private float posY;
+    public float posY;
 
     // Start is called before the first frame update
     void Start()

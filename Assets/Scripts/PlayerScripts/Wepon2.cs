@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
-public class Weapon : MonoBehaviour
+public class Wepon2 : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public Player1 player;
+    public Player2 player;
 
     private void Start()
     {
@@ -22,7 +21,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private float scaleMultiplier = 0.07f; 
+    private float scaleMultiplier = 0.07f;
 
     private void Shoot()
     {
