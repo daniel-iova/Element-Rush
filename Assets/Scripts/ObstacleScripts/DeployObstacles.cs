@@ -13,7 +13,6 @@ public class DeployObstacles : MonoBehaviour
 
     void Start()
     {
-
         SpawnObstacle(true);
         obstacleCount++;
         StartCoroutine(ObstaclePath());

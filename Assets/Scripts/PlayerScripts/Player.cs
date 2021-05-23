@@ -100,14 +100,15 @@ public class Player : MonoBehaviour
     {
         if(col.CompareTag(elements[currentElementIndex]))
         {
-            // score increase etc
             canChange = false;
         }
         else
         {
+            // ADD TRY AGAIN AND QUIT BUTTONS + LOGIC
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+
 
     public string GetCurrentElement()
     {

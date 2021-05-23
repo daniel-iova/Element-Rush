@@ -5,13 +5,13 @@ public class OutOfCamera : MonoBehaviour
     private BoxCollider2D bc;
     private float width;
 
-
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
         width = Camera.main.GetComponent<CameraUtils>().GetCameraWidth();
     }
     // Update is called once per frame
+
     void Update()
     {
         float cameraX = Camera.main.transform.position.x;
@@ -21,4 +21,5 @@ public class OutOfCamera : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 }

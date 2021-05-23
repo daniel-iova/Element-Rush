@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class PlaceOnY : MonoBehaviour
 {
-    public float posY;
+    private float posY;
 
     // Start is called before the first frame update
     void Start()
     {
         Obstacle obstacle = GetComponent<Obstacle>();
+        (float posStart, float posEnd) = obstacle.GetPositionRangeBasedOnPlayMode();
         posY = Random.Range(0, 2) == 0 ? 
-            Random.Range(obstacle.RandomPostionRangeStart, obstacle.RandomPostionRangeEnd) :
-            Random.Range(-obstacle.RandomPostionRangeStart, -obstacle.RandomPostionRangeEnd);
+            Random.Range(posStart, posEnd) :
+            Random.Range(-posEnd, -posStart);
         if (obstacle.RotationDependentOnPosition)
         {
             if (posY < 0)
@@ -23,11 +24,5 @@ public class PlaceOnY : MonoBehaviour
             }
         }
         transform.position = new Vector3(transform.position.x, posY, transform.position.z);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

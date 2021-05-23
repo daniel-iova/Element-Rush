@@ -17,11 +17,7 @@ namespace Assets.Scripts.UtilityScripts
         }
         private static dynamic GetDynamicJson(string filename)
         {
-            var converter = new ExpandoObjectConverter();
-
-            //return JObject.Parse(GetJsonString(filename));
-            return JsonConvert.DeserializeObject<ExpandoObject>(GetJsonString(filename), converter);
-            //return JsonConvert.DeserializeObject(GetJsonString(filename));
+            return JsonConvert.DeserializeObject<ExpandoObject>(GetJsonString(filename), new ExpandoObjectConverter());
         }
 
         public static dynamic GetValue(string key)

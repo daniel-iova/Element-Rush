@@ -1,3 +1,4 @@
+using Assets.Scripts.UtilityScripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +19,9 @@ public class Obstacle : MonoBehaviour
         gameObject.transform.localScale = new Vector3(randomSize, randomSize);
     }
 
-    // Update is called once per frame
-    void Update()
+    public (float, float) GetPositionRangeBasedOnPlayMode()
     {
-        
+        // Ignores the values set from the outside when we have 2 players
+        return ConfigFileUtil.GetValue("mode").ToString() == "2" ? (0, 0) : (RandomPostionRangeStart, RandomPostionRangeEnd);
     }
 }

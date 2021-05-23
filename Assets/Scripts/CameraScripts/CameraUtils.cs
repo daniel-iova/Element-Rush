@@ -10,7 +10,7 @@ public class CameraUtils : MonoBehaviour
 
     void Start()
     {
-        ConfigFileUtil.UpdateMode(MainMenu.FindObjectsOfType<GameObject>().Where(o => o.GetComponent<Player>() != null).Count());
+        ConfigFileUtil.UpdateMode(FindObjectsOfType<GameObject>().Where(o => o.GetComponent<Player>() != null).Count());
     }
 
     public dynamic GetKeysForPlayerId(int id)

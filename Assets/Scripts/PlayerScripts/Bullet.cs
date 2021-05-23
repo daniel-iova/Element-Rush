@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float speed = 35f;
+    private BoxCollider2D bc;
+    private float speed = 50f;
     public static float relationSpeed = 45f;
     private float damage = 20;
 
@@ -22,9 +23,26 @@ public class Bullet : MonoBehaviour
         return relations;
     }
 
-    private static void DestroyEachother(Bullet b)
+    private float width;
+
+    void Start()
     {
-        Destroy(b.gameObject);
+        width = Camera.main.GetComponent<CameraUtils>().GetCameraWidth();
+        bc = GetComponent<BoxCollider2D>();
+        rb.velocity = transform.right * speed;
+    }
+    void Update()
+    {
+        if (OutOfBounds())
+        {
+            Destroy(gameObject);
+        }    
+    }
+
+    private bool OutOfBounds()
+    {
+        float cameraX = Camera.main.transform.position.x;
+        return (transform.position.x + (bc.size.x + bc.offset.x) * transform.localScale.x > (cameraX + (width / 2) + 10));
     }
 
     private static Dictionary<string, Action<Bullet>> GetRelationsForType(string type)
@@ -33,7 +51,6 @@ public class Bullet : MonoBehaviour
         // air  and earth cancel eachother out
         float scaleMult = .8f;
         var dict = new Dictionary<string, Action<Bullet>>();
-        dict.Add(type, (b) => { return; });
         switch (type)
         {
             case "Fire":
@@ -110,17 +127,14 @@ public class Bullet : MonoBehaviour
         return this.damage;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb.velocity = transform.right * speed;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag(tag))
+        if (collision.tag != "Untagged")
         {
-            ApplyRelation(tag, collision.tag);
+            if (tag != collision.tag)
+            {
+                ApplyRelation(tag, collision.tag);
+            }
         }
     }
 
