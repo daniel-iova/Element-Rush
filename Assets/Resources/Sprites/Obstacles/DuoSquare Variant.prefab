@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2251163252445048642, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomSizeRangeEnd
-      value: 1
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2251163252445048642, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomSizeRangeStart
-      value: 1
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2251163252445048642, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomPostionRangeEnd
@@ -21,19 +21,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251163253214721567, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomSizeRangeEnd
-      value: 1
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2251163253214721567, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomSizeRangeStart
-      value: 1
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2251163253214721567, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomPostionRangeEnd
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2615516337420305863, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615516337420305863, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615516337787362458, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2615516337787362458, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: m_IsTrigger
@@ -50,6 +58,14 @@ PrefabInstance:
     - target: {fileID: 3129279085099731390, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129279085099731390, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129279085099731390, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 3129279085099731390, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -92,8 +108,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3129279085099731391, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_Size.x
+      value: 11.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129279085099731391, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_Size.y
+      value: 21.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129279085099731391, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279917325804432981, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279917325804432981, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279917326037169928, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279917326037169928, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6103823828860183720, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
