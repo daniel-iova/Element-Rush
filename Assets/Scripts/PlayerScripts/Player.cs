@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
+    public GameManager gameManager;
+
     // Elements and their respective CircleCollider radius
     private readonly string[] elements = {"Air", "Earth", "Fire", "Water" };
     // Final sprites might have different sizes, so we set different values for the collider radius
@@ -105,7 +108,7 @@ public class Player : MonoBehaviour
         else
         {
             // ADD TRY AGAIN AND QUIT BUTTONS + LOGIC
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            gameManager.GameOverSetup();
         }
     }
 

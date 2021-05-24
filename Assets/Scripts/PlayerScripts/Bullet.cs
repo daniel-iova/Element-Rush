@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     private BoxCollider2D bc;
     private float speed = 50f;
     public static float relationSpeed = 45f;
-    private float damage = 20;
+    private float damage = 1f;
 
     private static readonly Dictionary<string, Dictionary<string, Action<Bullet>>> relationDictionary = GetRelations();
 
@@ -55,23 +55,23 @@ public class Bullet : MonoBehaviour
         {
             case "Fire":
                 dict.Add("Water", (b) => Destroy(b.gameObject));
-                dict.Add("Air", (b) => FireAir(b));
-                dict.Add("Earth", (b) => FireEarth(b, scaleMult));
+                dict.Add("Air", (b) => Destroy(b.gameObject));
+                dict.Add("Earth", (b) => Destroy(b.gameObject));
                 break;
             case "Water":
                 dict.Add("Fire", (b) => Destroy(b.gameObject));
-                dict.Add("Air", (b) => WaterAir(b, scaleMult));
-                dict.Add("Earth", (b) => WaterEarth(b, scaleMult));
+                dict.Add("Air", (b) => Destroy(b.gameObject));
+                dict.Add("Earth", (b) => Destroy(b.gameObject));
                 break;
             case "Air":
                 dict.Add("Earth", (b) => Destroy(b.gameObject));
-                dict.Add("Fire", (b) => FireAir(b));
-                dict.Add("Water", (b) => WaterAir(b, scaleMult));
+                dict.Add("Fire", (b) => Destroy(b.gameObject));
+                dict.Add("Water", (b) => Destroy(b.gameObject));
                 break;
             case "Earth":
                 dict.Add("Air", (b) => Destroy(b.gameObject));
-                dict.Add("Fire", (b) => FireEarth(b, scaleMult));
-                dict.Add("Water", (b) => WaterEarth(b, scaleMult));
+                dict.Add("Fire", (b) => Destroy(b.gameObject));
+                dict.Add("Water", (b) => Destroy(b.gameObject));
                 break;
         }
         return dict;
@@ -133,7 +133,17 @@ public class Bullet : MonoBehaviour
         {
             if (tag != collision.tag)
             {
-                ApplyRelation(tag, collision.tag);
+                Barrier barrier = collision.GetComponent<Barrier>();
+                if(barrier != null)
+                {
+                    ApplyRelation(tag, barrier.tag);
+
+                    barrier.TakeDamage(damage);
+                    
+                }
+                else
+                    ApplyRelation(tag, collision.tag);
+
             }
         }
     }
