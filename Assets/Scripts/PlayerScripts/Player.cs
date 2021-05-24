@@ -94,7 +94,8 @@ public class Player : MonoBehaviour
         float cameraX = Camera.main.transform.position.x;
         if (transform.position.x + (circleCollider.radius*circleCollider.transform.localScale.x) < (cameraX - (width / 2)))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            gameManager.GameOverSetup();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         canChange = true;
     }

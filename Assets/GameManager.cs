@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < noGameObjects; i++)
             gameObjects[i].SetActive(false);
         
-        pointsText.text = "Distance: " + mainCamera.GetComponent<CameraUtils>().GetRoundedDistance();
+        pointsText.text = "You travelled " + mainCamera.GetComponent<CameraUtils>().GetRoundedDistance() + " meters!";
     }
 
     public void GameOver()
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void returnToMainMenu()
+    public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
 
