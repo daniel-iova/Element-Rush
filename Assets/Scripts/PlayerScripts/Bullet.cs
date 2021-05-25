@@ -41,7 +41,10 @@ public class Bullet : MonoBehaviour
 
     private bool OutOfBounds()
     {
+        if (transform.position.y> 20)
+            return true;
         float cameraX = Camera.main.transform.position.x;
+
         return (transform.position.x + (bc.size.x + bc.offset.x) * transform.localScale.x > (cameraX + (width / 2) + 10));
     }
 

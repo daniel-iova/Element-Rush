@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2251163252445048642, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomSizeRangeEnd
-      value: 1.45
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2251163252445048642, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomSizeRangeStart
-      value: 1.45
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2251163252445048642, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomPostionRangeEnd
@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251163253214721567, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomSizeRangeEnd
-      value: 1.45
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2251163253214721567, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomSizeRangeStart
-      value: 1.45
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2251163253214721567, guid: 4908079aa544282418826c8c2fe45de9, type: 3}
       propertyPath: RandomPostionRangeEnd

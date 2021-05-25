@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Earth
   - ObstacleSpawner
+  - Turret
   layers:
   - Default
   - TransparentFX

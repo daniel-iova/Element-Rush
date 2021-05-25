@@ -8,21 +8,27 @@ public class PlaceOnY : MonoBehaviour
     void Start()
     {
         Obstacle obstacle = GetComponent<Obstacle>();
-        (float posStart, float posEnd) = obstacle.GetPositionRangeBasedOnPlayMode();
-        posY = Random.Range(0, 2) == 0 ? 
-            Random.Range(posStart, posEnd) :
-            Random.Range(-posEnd, -posStart);
-        if (obstacle.RotationDependentOnPosition)
+
+        if (obstacle.tag != "Turret")
         {
-            if (posY < 0)
+            (float posStart, float posEnd) = obstacle.GetPositionRangeBasedOnPlayMode();
+            posY = Random.Range(0, 2) == 0 ?
+                Random.Range(posStart, posEnd) :
+                Random.Range(-posEnd, -posStart);
+            if (obstacle.RotationDependentOnPosition)
             {
-                var rotator = GetComponent<Rotator>();
-                if (rotator != null)
+                if (posY < 0)
                 {
-                    rotator.SetRotationDirection(-1);
+                    var rotator = GetComponent<Rotator>();
+                    if (rotator != null)
+                    {
+                        rotator.SetRotationDirection(-1);
+                    }
                 }
             }
+            transform.position = new Vector3(transform.position.x, posY, transform.position.z);
         }
-        transform.position = new Vector3(transform.position.x, posY, transform.position.z);
+        else
+            transform.position = new Vector3(transform.position.x, -11, transform.position.z);
     }
 }

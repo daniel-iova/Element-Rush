@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private float width;
     private int currentElementIndex = -1;
 
+    public float timeUntilElementChange = 5;
     float time = 10;
 
     private int? shootKey, jumpKey;
@@ -79,7 +80,7 @@ public class Player : MonoBehaviour
             rb.velocity = Vector2.right * jumpForce;
         }
 
-        if (time >= 5)
+        if (time >= timeUntilElementChange)
         {
             if (canChange == true)
             {
