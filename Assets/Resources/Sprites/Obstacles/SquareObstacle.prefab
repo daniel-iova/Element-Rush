@@ -110,8 +110,9 @@ MonoBehaviour:
   RandomSizeRangeStart: 2
   RandomSizeRangeEnd: 2.5
   RotationDependentOnPosition: 0
-  RandomPostionRangeStart: 0
-  RandomPostionRangeEnd: 2
+  RandomPostionRangeStart: 1
+  RandomPostionRangeEnd: 3
+  hasFixedPosition: 0
 --- !u!114 &2642976079704965042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11561581407f4164a86eea2588776964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posY: 0
 --- !u!1 &2917365696614552285
 GameObject:
   m_ObjectHideFlags: 0

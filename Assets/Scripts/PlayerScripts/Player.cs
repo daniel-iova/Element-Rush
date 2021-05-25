@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour
@@ -11,9 +8,19 @@ public class Player : MonoBehaviour
     public GameManager gameManager;
 
     // Elements and their respective CircleCollider radius
-    private readonly string[] elements = {"Air", "Earth", "Fire", "Water" };
+    private readonly string[] elements = { "Air", "Earth", "Fire", "Water" };
     // Final sprites might have different sizes, so we set different values for the collider radius
     private readonly float[] elementColliderRadius = { 13.41f, 12.26f, 11.23f, 12.6f };
+
+    private bool isInvincible = false;
+
+    public GameObject invincibleFilter;
+    public GameObject invincibleText;
+
+    internal void SetInvincibleState(bool isInvincible)
+    {
+        this.isInvincible = isInvincible;
+    }
 
     // SET TO 1 FOR THE 2ND PLAYER IN THE 2P MODE
     public int Id = 0;
@@ -75,6 +82,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetInvincibleFilter(isInvincible);
         if (Input.GetKeyDown(GetKeyCode("jump")))
         {
             rb.velocity = Vector2.right * jumpForce;
@@ -93,24 +101,31 @@ public class Player : MonoBehaviour
             time += Time.deltaTime;
         }
         float cameraX = Camera.main.transform.position.x;
-        if (transform.position.x + (circleCollider.radius*circleCollider.transform.localScale.x) < (cameraX - (width / 2)))
+        if (transform.position.x + (circleCollider.radius * circleCollider.transform.localScale.x) < (cameraX - (width / 2)))
         {
             gameManager.GameOverSetup();
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         canChange = true;
     }
 
+    private void SetInvincibleFilter(bool invincible)
+    {
+        invincibleFilter.SetActive(invincible);
+        invincibleText.SetActive(invincible);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.CompareTag(elements[currentElementIndex]))
+        if (!isInvincible)
         {
-            canChange = false;
-        }
-        else
-        {
-            // ADD TRY AGAIN AND QUIT BUTTONS + LOGIC
-            gameManager.GameOverSetup();
+            if (col.CompareTag(elements[currentElementIndex]))
+            {
+                canChange = false;
+            }
+            else
+            {
+                gameManager.GameOverSetup();
+            }
         }
     }
 
