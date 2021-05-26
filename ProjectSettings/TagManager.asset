@@ -8,6 +8,9 @@ TagManager:
   - Air
   - Water
   - Earth
+  - ObstacleSpawner
+  - Turret
+  - InvinciblePickup
   layers:
   - Default
   - TransparentFX
@@ -44,6 +47,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: MiddleCrossObstacle
+    uniqueID: 3567998717
     locked: 0
   - name: Obstacles
     uniqueID: 1641154615
