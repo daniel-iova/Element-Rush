@@ -10,7 +10,6 @@ public class UpDownPartsMovement : MonoBehaviour
     public float        minSpeed;
     public float        maxSpeed;
     
-    // Start is called before the first frame update
     void Start()
     {
         AssignPartsSpeeds();
@@ -71,7 +70,6 @@ public class UpDownPartsMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateParts();   

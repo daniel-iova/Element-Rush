@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         this.isInvincible = isInvincible;
     }
 
-    // SET TO 1 FOR THE 2ND PLAYER IN THE 2P MODE
+    // Set to 1 for the 2nd player in the 2p mode
     public int Id = 0;
 
     public float jumpForce = 29f;
@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
     void ChangeSprite()
     {
         currentElementIndex = Random.Range(0, elements.Length);
-        // Using placeholder sprites for now
         spriteRenderer.sprite = Resources.Load<Sprite>(Path.Combine("Sprites", "Player", $"{elements[currentElementIndex]}Player"));
         // Change collider radius based on element
         circleCollider.radius = elementColliderRadius[currentElementIndex];
@@ -79,7 +78,6 @@ public class Player : MonoBehaviour
 
     private bool canChange = true;
 
-    // Update is called once per frame
     void Update()
     {
         SetInvincibleFilter(isInvincible);

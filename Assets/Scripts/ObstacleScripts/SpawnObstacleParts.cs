@@ -12,7 +12,6 @@ public class SpawnObstacleParts : MonoBehaviour
 
     private int NoParts;
 
-    // Start is called before the first frame update
     void Start()
     {
         NoParts = Random.Range(minimumNoParts, maximumNoParts);
@@ -43,9 +42,5 @@ public class SpawnObstacleParts : MonoBehaviour
     public int GetObstacleNumber()
     {
         return NoParts;
-    }
-
-    void Update()
-    {
     }
 }

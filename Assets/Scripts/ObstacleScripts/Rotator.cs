@@ -6,7 +6,6 @@ public class Rotator : MonoBehaviour
     private float rotationSpeed;
     private int rotationDirection = 1;
 
-    // Update is called once per frame
     private void Start()
     {
         rotationSpeed = Random.Range(100, MaximumRotationSpeed);

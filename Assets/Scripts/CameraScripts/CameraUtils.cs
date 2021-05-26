@@ -1,6 +1,4 @@
 using Assets.Scripts.UtilityScripts;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 

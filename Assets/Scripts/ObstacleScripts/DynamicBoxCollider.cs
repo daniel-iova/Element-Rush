@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -35,7 +33,6 @@ public class DynamicBoxCollider : MonoBehaviour
         return boxCollider.size.x + boxCollider.offset.x;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

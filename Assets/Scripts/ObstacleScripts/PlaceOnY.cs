@@ -4,7 +4,6 @@ public class PlaceOnY : MonoBehaviour
 {
     private float posY;
 
-    // Start is called before the first frame update
     void Start()
     {
         Obstacle obstacle = GetComponent<Obstacle>();

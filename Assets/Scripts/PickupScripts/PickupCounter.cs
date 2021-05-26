@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -17,12 +15,10 @@ public class PickupCounter : MonoBehaviour
         elapsedTime = timeUntilElementChange;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (elapsedTime < 1)
         {
-            //time = timeUntilElementChange + 1;
             elapsedTime = timeUntilElementChange;
             foreach (Player p in players)
             {

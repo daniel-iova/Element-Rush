@@ -10,7 +10,6 @@ public class OutOfCamera : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
         width = Camera.main.GetComponent<CameraUtils>().GetCameraWidth();
     }
-    // Update is called once per frame
 
     void Update()
     {

@@ -59,7 +59,6 @@ public class DeployObstacles : MonoBehaviour
         obstacleCount--;
     }
 
-    // Update is called once per frame
     void Update()
     {
         for (int i = 0; i < obstacleCount; i++)
